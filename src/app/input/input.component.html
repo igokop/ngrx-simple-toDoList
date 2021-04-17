@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4>ToDoList</h4>
+            <form [formGroup]="add" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                  <input type="text" formControlName="task" class="form-control" placeholder="New task" />
+                  <button [disabled]="!add.valid" style="cursor:pointer; right:5px;"  class="btn btn-primary submit"> ADD </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

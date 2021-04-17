@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <h4 style="cursor: pointer" (click)="openToDo()" *ngIf="tasks.length != 0">ToDo<span class="caret"></span></h4>
+            <ul class="list-group" *ngFor="let task of tasks; let i = index">
+                <a class="list-group-item clearfix" *ngIf="toDoOpened">
+                    <h4>{{ task.name }}</h4>
+                    <h5 style="max-width:80%; float: right">{{ task.date }}</h5>
+                    <button class="btn btn-primary" (click)="moveToDone(i)">Done</button>
+                    <button class="btn btn-danger" (click)="deleteToDo(i)">Delete</button>
+                </a>
+            </ul>
+            <h4 style="cursor: pointer" (click)="openDone()" *ngIf="dones.length != 0">Done<span class="caret"></span></h4>
+            <ul class="list-group" *ngFor="let done of dones; let i=index">
+                <a class="list-group-item clearfix" *ngIf="doneOpened">
+                    <h4>{{ done.name }}</h4>
+                    <h5 style="max-width:80%; float: right">{{ done.date }}</h5>
+                    <button class="btn btn-danger" (click)="deleteDone(i)">Delete</button>
+                </a>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,5 +1,10 @@
 import * as listActions from './list-actions';
 
+export interface State {
+    toDo: any[];
+    done: any[];
+  }
+
 const initialState = {
     toDo: [
         {name: 'hej', date:'2012-12-24'},
@@ -35,6 +40,26 @@ export function listReducer(state = initialState, action: listActions.ListAction
                 done: state.done.filter((fi, fiIndex) =>{
                     return fiIndex !== action.payload;
                 })
+            }
+        case listActions.SET_TODO:
+            return{
+                ...state,
+                toDo: [...state.toDo, action.payload],
+            }
+        case listActions.SET_DONE:
+            return{
+                ...state,
+                done: [...state.done, action.payload],
+            }
+        case listActions.STORE_TODO:
+            return{
+                // ...state,
+                // done: [...state.done, action.payload],
+            }
+        case listActions.STORE_DONE:
+            return{
+                // ...state,
+                // done: [...state.done, action.payload],
             }
         default: 
             return state;

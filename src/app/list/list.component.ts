@@ -15,6 +15,7 @@ export class ListComponent implements OnInit {
   constructor(private store: Store<{list: {toDo: any, done: any}}>) { }
   
   ngOnInit(): void {
+    this.store.dispatch(new listActions.FirebaseGet());
     this.store.select('list').subscribe(data=>{
       this.tasks = data.toDo;
       this.dones = data.done;

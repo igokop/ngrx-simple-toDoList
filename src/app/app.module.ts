@@ -8,6 +8,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { DatePipe } from '@angular/common';
 import { StoreModule } from '@ngrx/store';
 import { listReducer } from './store/list-reducer'
+import { EffectsModule } from '@ngrx/effects';
+import { ListEffects } from './store/list-effects'
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,9 @@ import { listReducer } from './store/list-reducer'
   imports: [
     BrowserModule,
     ReactiveFormsModule,
-    StoreModule.forRoot({list: listReducer})
+    StoreModule.forRoot({list: listReducer}),
+    EffectsModule.forRoot([ListEffects]),
+    HttpClientModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]
